@@ -1,0 +1,13 @@
+.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+LABEL:after {
+    content: ":";
+}
+
+LABEL.required:after {
+    content: " * :";
+}

@@ -91,40 +91,6 @@ public class MockitoTest {
         verify(mock).close();
     }
 
-    //This example will verify that OutputStreamWriter propagates the close method call to the wrapped output stream. You
-    // can use arguments on methods and matchers such as anyInt() similar to the previous example. Note that you can’t mix
-    // literals and matchers, so if you have multiple arguments they all have to be either literals or matchers. use
-    // eq(value) matcher to convert a literal into a matcher that compares on value. Mockito comes with lots of matchers
-    // already built in, but sometimes you need a bit more flexibility. For example, OutputStreamWriter will buffer output
-    // and then send it to the wrapped object when flushed, but we don’t know how big the buffer is upfront. So we can’t
-    // use equality matching. However, we can supply our own matcher:
-    @Test
-    public void outputStreamWriter_Buffers_And_Forwards_To_OutputStream() throws IOException {
-        OutputStream mockedOutputStream = mock(OutputStream.class);
-        OutputStreamWriter osw = new OutputStreamWriter(mockedOutputStream);
-        osw.write('a');
-        osw.flush();
-
-        // can't do this as we don't know how long the array is going to be
-        // verify(mock).write(new byte[]{'a'},0,1);
-
-        BaseMatcher arrayStartingWithA = new BaseMatcher() {
-            @Override
-            public void describeTo(Description description) {
-                // nothing
-            }
-            // check that first character is A
-            @Override
-            public boolean matches(Object item) {
-                byte[] actual = (byte[]) item;
-                return actual[0] == 'a';
-            }
-        };
-
-        // check that first character of the array is A, and that the other two arguments are 0 and 1
-        verify(mockedOutputStream).write(new byte[]{byteThat((ArgumentMatcher<Byte>) arrayStartingWithA)}, eq(0), eq(1));
-    }
-
     // *****************************************************************************************************************
     // DO NOT REMOVE THE HOW TO EXAMPLES BELOW
     // *****************************************************************************************************************

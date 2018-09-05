@@ -1,4 +1,6 @@
-package com.groovin101.kata.intermediate;
+package com.groovin101.kata.hold;
+
+import com.groovin101.kata.intermediate.ListNode;
 
 import java.util.List;
 
@@ -16,15 +18,10 @@ import java.util.List;
  */
 public class KataAddReversedLinkedLists {
 
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    public ListNode addTwoNumbers(ListNode listNodeOne, ListNode listNodeTwo) {
 
-        int totalOfNode1 = totalOfNodes(l1);
-        int totalOfNode2 = totalOfNodes(l2);
-
-        System.out.println("node1 = " + l1);
-        System.out.println("node1 total = " + totalOfNode1);
-        System.out.println("node2 = " + l2);
-        System.out.println("node2 total = " + totalOfNode2);
+        int totalOfNode1 = totalOfNodes(listNodeOne);
+        int totalOfNode2 = totalOfNodes(listNodeTwo);
 
         int total = totalOfNode1 + totalOfNode2;
         return buildNode(total);
@@ -39,16 +36,18 @@ public class KataAddReversedLinkedLists {
         return node;
     }
 
-    private int totalOfNodes(ListNode node) {
-        //todo: problem is in this method here............................
-        int total = node.getVal();
-        //2
-        if (node.getNext() != null) {
-            total += node.getNext().getVal() * 10;
-            //42
-            totalOfNodes(node.getNext());
+    /**
+     * Take a LinkedList and turn it into a decimal. (2 -> 4 -> 3) should output 243
+     * @param node
+     * @return
+     */
+    public int totalOfNodes(ListNode node) {
+        if (node.getNext() == null) {
+            return node.getVal();
         }
-        return total;
+        else {
+            return node.getVal() + (totalOfNodes(node.getNext())*10);
+        }
     }
 
 }

@@ -7,9 +7,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class KataIsIntPalindromeTest {
+public class KataIsIntPalindromeStringTest {
 
-    KataIsIntPalindrome kata = new KataIsIntPalindrome();
+    KataIsIntPalindromeString kata = new KataIsIntPalindromeString();
 
     @Test
     public void isPalindrome_yes_singleDigit() {

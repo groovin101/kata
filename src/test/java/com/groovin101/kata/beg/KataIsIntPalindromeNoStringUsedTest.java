@@ -32,19 +32,4 @@ public class KataIsIntPalindromeNoStringUsedTest {
     public void reverseInteger_doubleDigit() {
         assertEquals(79, kata.reverseInteger(97));
     }
-
-//    @Test
-//    public void isPalindrome_yes_evenNumberOfDigits() {
-//        assertTrue(kata.isPalindrome(7887));
-//    }
-//
-//    @Test
-//    public void isPalindrome_no_evenNumberOfDigits() {
-//        assertFalse(kata.isPalindrome(78));
-//    }
-//
-//    @Test
-//    public void isPalindrome_no_oddNumberOfDigits() {
-//        assertFalse(kata.isPalindrome(789));
-//    }
 }

@@ -1,7 +1,5 @@
 package com.groovin101.kata.beg;
 
-import java.util.Stack;
-
 /**
  * Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
  * <p>

@@ -21,8 +21,6 @@ public class KataIsIntPalindromeNoStringUsed implements KataIsIntPalindrome {
         while (reverseMe > 0) {
             reversed = (reverseMe % 10) + (reversed * 10);   //(reverseMe % 10) + (reversed * 10)     =  (97 % 10) + (0 * 10)
             reverseMe = reverseMe/10;
-            // = reversed = 7
-                                                             //(reverseMe/10 % 10) + (reversed * 10)  =  (97/10 % 10) + (7 * 10) = reversed = 79
         }
         return reversed;
     }

@@ -19,6 +19,8 @@ package com.groovin101.kata.beg;
  *
  * S and J will consist of letters and have length at most 50.
  * The characters in J are distinct.
+ *
+ * https://leetcode.com/problems/jewels-and-stones/description/
  */
 public class KataJewelsAndStones {
 

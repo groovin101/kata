@@ -25,4 +25,9 @@ public class ChromosomeCheckTest {
     public void chromosomeCheck_() {
         KataChromosomeCheck.chromosomeCheck("Z");
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void chromosomeCheck_nullSperm() {
+        KataChromosomeCheck.chromosomeCheck(null);
+    }
 }

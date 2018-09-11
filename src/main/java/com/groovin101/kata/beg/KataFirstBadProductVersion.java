@@ -1,7 +1,5 @@
 package com.groovin101.kata.beg;
 
-import java.util.Arrays;
-
 /**
  * You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based
  * on the previous version, all the versions after a bad version are also bad.
@@ -36,30 +34,10 @@ public class KataFirstBadProductVersion {
      * @return
      */
     public int firstBadVersion(int n) {
-
-        int[] arr = new int[n+1];
-        for (int i=0;i<=n;i++) {
-            arr[i] = i;
+        if (api.isBadVersion(n) && !api.isBadVersion(n-1)) {
+            return n;
         }
-        return findFirstBad(arr);
-    }
-
-    int findFirstBad(int[] arr) {
-        if (arr.length <=1) {
-            return arr[0];
-        }
-        if (arr.length == 2) {
-            if (api.isBadVersion(arr[0])) {
-                return arr[0];
-            }
-            return arr[1];
-        }
-        if (api.isBadVersion(arr[arr.length/2])) {
-            return findFirstBad(Arrays.copyOfRange(arr, 0, (arr.length/2)+1));
-        }
-        else {
-            return findFirstBad(Arrays.copyOfRange(arr, arr.length/2, arr.length-1));
-        }
+        return firstBadVersion(n-1);
     }
 
 

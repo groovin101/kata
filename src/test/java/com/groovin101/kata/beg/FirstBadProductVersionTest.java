@@ -4,10 +4,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class FirstBadVersionTest {
+public class FirstBadProductVersionTest {
 
     @Test
     public void firstBadVersion() {
-        assertEquals(4, new KataFirstBadVersion().firstBadVersion(5));
+        assertEquals(4, new KataFirstBadProductVersion(4).firstBadVersion(5));
     }
 }

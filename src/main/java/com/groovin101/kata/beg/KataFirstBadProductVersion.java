@@ -18,9 +18,23 @@ import java.util.Arrays;
  *  call isBadVersion(4) -> true
  *
  *  Then 4 is the first bad version.
+ *
+ *  https://leetcode.com/problems/first-bad-version/description/
  */
-public class KataFirstBadVersion {
+public class KataFirstBadProductVersion {
 
+    private VersionControl api;
+
+    public KataFirstBadProductVersion(int firstBadVersionAsDefinedByAPI) {
+        api = new VersionControl(firstBadVersionAsDefinedByAPI);
+    }
+
+    /**
+     * Looking at version n, determine which of the previous versions is actually the first bad version
+     * by leveraging the VersionControlAPI.isBadVersion(n) method.
+     * @param n
+     * @return
+     */
     public int firstBadVersion(int n) {
 
         int[] arr = new int[n+1];
@@ -35,12 +49,12 @@ public class KataFirstBadVersion {
             return arr[0];
         }
         if (arr.length == 2) {
-            if (VersionControl.isBadVersion(arr[0])) {
+            if (api.isBadVersion(arr[0])) {
                 return arr[0];
             }
             return arr[1];
         }
-        if (VersionControl.isBadVersion(arr[arr.length/2])) {
+        if (api.isBadVersion(arr[arr.length/2])) {
             return findFirstBad(Arrays.copyOfRange(arr, 0, (arr.length/2)+1));
         }
         else {
@@ -48,9 +62,22 @@ public class KataFirstBadVersion {
         }
     }
 
-    private static class VersionControl {
-        static boolean isBadVersion(int version) {
-            if (version >= 4) {
+
+    /**
+     * Simulates an external API that is aware of the first bad product version, but does not expose it directly.
+     * Our job will be to utilize this service to narrow down our own product list and identify, without peaking
+     * into the API details itself, which of our products is the first bad version.
+     */
+    private class VersionControl {
+
+        private int firstBadVersion;
+
+        VersionControl(int firstBadVersionAsDefinedByAPI) {
+            this.firstBadVersion = firstBadVersionAsDefinedByAPI;
+        }
+
+        boolean isBadVersion(int version) {
+            if (version >= firstBadVersion) {
                 return true;
             }
             return false;

@@ -30,16 +30,25 @@ public class KataFirstBadProductVersion {
     /**
      * Looking at version n, determine which of the previous versions is actually the first bad version
      * by leveraging the VersionControlAPI.isBadVersion(n) method.
+     *
      * @param n
      * @return
      */
     public int firstBadVersion(int n) {
-        if (api.isBadVersion(n) && !api.isBadVersion(n-1)) {
-            return n;
+        int left = 1;
+        int right = n;
+        int mid;
+        while (left != right) {
+            mid = left + (right-left)/2;
+            if (api.isBadVersion(mid)) {
+                right = mid;
+            }
+            else {
+                left = mid +1;
+            }
         }
-        return firstBadVersion(n-1);
+        return left;
     }
-
 
     /**
      * Simulates an external API that is aware of the first bad product version, but does not expose it directly.

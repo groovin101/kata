@@ -17,6 +17,10 @@ public class NodeSingleLink<E> {
         this.next = next;
     }
 
+    public E getValue() {
+        return value;
+    }
+
     @Override
     public String toString() {
         return "Node{" +

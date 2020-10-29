@@ -23,16 +23,14 @@ public class KataShuffle2NArray {
     public int[] shuffle(int[] inputArray, int n) {
 
         int[] resultAsArray = new int[inputArray.length];
-        List<Integer> resultAsList = new ArrayList<>();
 
         //loop through the array, knowing that xs are first
         // 2n = array length, x length = n, y length = n
+        int lastOccupiedPosition = 0;
         for (int i = 0; i < n; i++) {
-            resultAsList.add(inputArray[i]);
-            resultAsList.add(inputArray[n+i]);
-        }
-        for (int i = 0; i < resultAsList.size(); i++) {
-            resultAsArray[i] = resultAsList.get(i);
+            resultAsArray[lastOccupiedPosition] = inputArray[i];
+            resultAsArray[lastOccupiedPosition+1] = inputArray[n+i];
+            lastOccupiedPosition += 2;
         }
         return resultAsArray;
     }

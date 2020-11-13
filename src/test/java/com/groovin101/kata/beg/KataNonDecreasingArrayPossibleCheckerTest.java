@@ -21,6 +21,12 @@ public class KataNonDecreasingArrayPossibleCheckerTest {
     }
 
     @Test
+    public void checkPossibility_false_3digits() {
+        int[] nums = new int[]{4,2,1};
+        assertFalse(kata.checkPossibility(nums));
+    }
+
+    @Test
     public void checkPossibility_true() {
         int[] nums = new int[]{4,2,3};
         assertTrue(kata.checkPossibility(nums));

@@ -1,10 +1,0 @@
-
-M
-java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓþÿÿÿÿ
-Z
-java:S1854"?Remove this useless assignment to local variable "orderedList".(è´À’ûÿÿÿÿ
-C	java:S108")Either remove or fill this block of code.(èÇâ˜ûÿÿÿÿ
-C
-java:S1481"(Remove this unused "num" local variable.(èÇâ˜ûÿÿÿÿ
-K
-java:S1481"0Remove this unused "orderedList" local variable.(è´À’ûÿÿÿÿ

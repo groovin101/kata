@@ -21,8 +21,8 @@ public class KataNonDecreasingArrayPossibleChecker {
 
     public boolean checkPossibility(int[] nums) {
         //int[] nums2 = Arrays.copyOf(nums, nums.length);
-        //return checkPossibility_THISWORKS(nums);
-        return checkPossibility_solutionTwo(nums);
+        return checkPossibility_THISWORKS(nums);
+        //return checkPossibility_solutionTwo(nums);
     }
 
     public boolean checkPossibility_solutionTwo(int[] nums) {

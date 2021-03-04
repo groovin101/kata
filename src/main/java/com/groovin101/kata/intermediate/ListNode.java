@@ -2,6 +2,9 @@ package com.groovin101.kata.intermediate;
 
 import java.util.Objects;
 
+/**
+ * Used to aid in LinkedList based katas
+ */
 public class ListNode {
     int val;
     ListNode next;
@@ -24,7 +27,7 @@ public class ListNode {
 
     public ListNode setNext(ListNode next) {
         this.next = next;
-        return this;
+        return next;
     }
 
     @Override
